@@ -3,7 +3,7 @@
 """
 Created on Fri Apr  7 11:58:02 2017
 
-@author: steve
+@author: SteveJSmith1
 """
 
 class Solution(object):
@@ -12,8 +12,16 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
+        # Process negative number
+        if x < 0:
+            return False
         
-        return 
+        else: # Reverse all digits
+            i = int(str(x)[::-1])
+        # Check if palindrome
+        if i == x:
+            return True
+        return False
     
 
 from nose.tools import assert_equal, assert_raises

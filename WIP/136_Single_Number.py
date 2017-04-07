@@ -18,8 +18,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        
-        return 
+        # Raise input Errors
+        if nums == None:
+            raise TypeError("nums must be a list of numbers")
+        if type(nums) != list:
+            raise TypeError("nums must be a list of numbers")
+            
+        # Using counter to find single vals
+        from collections import Counter
+        single_vals = [k for k, v in Counter(nums).items() if v == 1 ]
+
+        return single_vals[0]
     
     
 from nose.tools import assert_equal, assert_raises

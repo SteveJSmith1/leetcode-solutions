@@ -14,6 +14,14 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
+        if strs is None:
+            raise TypeError("List of strings required to be passed")
+        if type(strs) != list:
+            raise TypeError("List of strings required to be passed")
+        for s in strs:
+            if type(s) != str:
+                raise ValueError("List must contain strings")
+            
         import os
         return os.path.commonprefix(strs)
 
@@ -28,9 +36,14 @@ class TestLongestCommonPrefix(object):
         solution = Solution()
         assert_raises(TypeError, solution.longestCommonPrefix, None)
         assert_raises(TypeError, solution.longestCommonPrefix, 3)
+        assert_raises(ValueError, solution.longestCommonPrefix, [3])
+        assert_raises(ValueError, solution.longestCommonPrefix, ['cheese', 3])
         assert_equal(solution.longestCommonPrefix(\
                                                   ["test", "testy", "testing",\
                                                    "testicles"]),  'test')
+        assert_equal(solution.longestCommonPrefix(\
+                                                  ["pete", "ate", "some",\
+                                                   "cheese"]),  '')
         
         print('Success: test_searchInsert')
 

@@ -12,26 +12,34 @@ class Solution(object):
         Given a sorted array, remove the duplicates in place such that each 
         element appear only once and return the new length.
         
+        Do not allocate extra space for another array, 
+        you must do this in place with constant memory.
+        
         :type nums: List[int]
         :rtype: int
         """
-        return
+        if not nums:
+            return 0
 
-from nose.tools import assert_equal, assert_raises
+        tail = 0
+
+        for i in range(1, len(nums)):
+            if nums[i] != nums[tail]:
+                tail += 1
+                nums[tail] = nums[i]
+
+        return tail + 1
+    
+
+from nose.tools import assert_equal
   
 class TestRemoveDuplicates(object):
 
     def test_removeDuplicates(self):
         solution = Solution()
         
-        assert_equal(solution.removeDuplicates([1,1,2]), [1,2])
-        assert_equal(solution.removeDuplicates([1,1,2,2,3,4,5,5,6]), \
-                     [1,2,3,4,5,6])
-        
-        assert_raises(TypeError, solution.removeDuplicates, None)
-        assert_raises(TypeError, solution.removeDuplicates, "3")
-        
-        
+        assert_equal(solution.removeDuplicates([1,1,2]), 2)
+        assert_equal(solution.removeDuplicates([1,1,2,2,3,4,5,5,6]), 6)
         print('Success: test_removeDuplicates')
 
 

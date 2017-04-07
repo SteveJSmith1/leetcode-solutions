@@ -12,10 +12,27 @@ class Solution(object):
         :type numRows: int
         :rtype: List[List[int]]
         """
+        pt = [ [1], [1,1] ]
+        #Return special case for numRows = 1,2
+        if numRows == 0:
+            return []
+        elif numRows == 1:
+            return [pt[0]]
+        elif numRows == 2:
+            return pt
         
-        return 
-    
-    
+        # For the third to the last row
+        for r in range(3, numRows + 1):
+            # create a list of 1s the length of the row number
+            row = [1]*r
+            # Change coefficients for values in the list except for
+            # the first and last, using values fetched from the previous list
+            for i in range(0, r - 2):
+                row[i + 1] = pt[r - 2][i] + pt[r - 2][i + 1]
+            pt.append(row)
+        return pt
+
+
 from nose.tools import assert_equal, assert_raises
 
 

@@ -46,7 +46,7 @@ class TestSearchInsert(object):
         assert_equal(solution.searchInsert([1,3,5,6], 2), 1)
         assert_equal(solution.searchInsert([1,3,5,6], 5), 2)
         
-        print('Success: test_find_diff')
+        print('Success: test_searchInsert')
 
 
 def main():

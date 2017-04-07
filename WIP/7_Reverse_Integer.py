@@ -12,8 +12,20 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
+        # Process negative number
+        if x < 0:
+            rev = str(x)[:0:-1]
+            rev = '-' + rev
+            i = int(rev)
         
-        return 
+        else: # Reverse all digits
+            i = int(str(x)[::-1])
+        # Check if abs value of reverse greater than max value of 32bit unsigned int
+        if abs(i) >= 2147483647:
+            return  0
+        return i
+    
+
     
 from nose.tools import assert_equal, assert_raises
 

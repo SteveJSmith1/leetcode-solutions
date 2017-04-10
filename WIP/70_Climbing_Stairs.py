@@ -18,7 +18,11 @@ class Solution(object):
         
         Note: Given n will be a positive integer.
         """
-        return
+        # The solution follows the fibonacci sequence
+        fib = [1,1]
+        for i in range(2, n + 1):
+            fib.append(fib[i-2] + fib[i-1])
+        return fib[-1]
     
 
 
@@ -33,6 +37,8 @@ class TestClimbStairs(object):
         assert_equal(solution.climbStairs(4), 5)
         assert_equal(solution.climbStairs(0), 1)
         assert_equal(solution.climbStairs(3), 3)
+        assert_equal(solution.climbStairs(5), 8)
+        assert_equal(solution.climbStairs(6), 13)
         assert_equal(solution.climbStairs(30), 1346269)
 
         print('Success: test_climbStairs')

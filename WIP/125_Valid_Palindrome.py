@@ -15,7 +15,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        string = [w.lower() for w in s if w.isalpha()]
+        string = [w.lower() for w in s if w.isalnum()]
         rev_string = string[::-1]
         return string == rev_string
     

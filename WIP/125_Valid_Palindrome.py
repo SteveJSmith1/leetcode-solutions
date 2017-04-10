@@ -30,6 +30,8 @@ class TestIsPalindrome(object):
         assert_equal(solution.isPalindrome("A man, a plan, a canal: Panama"), True)
         assert_equal(solution.isPalindrome(""), True)
         assert_equal(solution.isPalindrome("race a car"), False)
+        assert_equal(solution.isPalindrome("0P"), False)
+        
                
         
         print('Success: test_isPalindrome')

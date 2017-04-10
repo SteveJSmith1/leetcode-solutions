@@ -15,7 +15,7 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
-        return
+        return int(x**0.5)
     
 from nose.tools import assert_equal
 

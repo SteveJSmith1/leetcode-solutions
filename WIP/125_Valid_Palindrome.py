@@ -15,7 +15,9 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        return
+        string = [w.lower() for w in s if w.isalpha()]
+        rev_string = string[::-1]
+        return string == rev_string
     
 from nose.tools import assert_equal
 
@@ -27,7 +29,7 @@ class TestIsPalindrome(object):
         
         assert_equal(solution.isPalindrome("A man, a plan, a canal: Panama"), True)
         assert_equal(solution.isPalindrome(""), True)
-        assert_equal(solution.isPalindrome("race a car"), True)
+        assert_equal(solution.isPalindrome("race a car"), False)
                
         
         print('Success: test_isPalindrome')

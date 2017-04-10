@@ -15,9 +15,9 @@ class Solution(object):
         :rtype: str
         """
         title = ''
-        alist = 'ABCDEFGHIJKLMNOPQRSTUVWXY'
+        alist = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         while n:
-            mod = (n-1) % 26
+            mod = (n - 1) % 26
             n = int((n - mod) / 26)  
             title += alist[mod]
         return title[::-1]

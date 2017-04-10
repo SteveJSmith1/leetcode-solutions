@@ -21,7 +21,8 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        return
+        digits[-1] = digits[-1] + 1
+        return digits
     
 from nose.tools import assert_equal, assert_raises
 

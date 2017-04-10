@@ -11,11 +11,13 @@ class Solution(object):
         """
         Given two binary strings, return their sum (also a binary string).
 
-
         :type a: str
         :type b: str
         :rtype: str
         """
+        # Convert strings a and b to integers of base 2, convert to binary
+        # string, removing 0b from output
+        return bin(int(a,2) + int(b,2))[2:]
         
 
 

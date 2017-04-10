@@ -21,10 +21,15 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        digits[-1] = digits[-1] + 1
-        return digits
+        strings = [str(i) for i in digits]
+        number = int(''.join(strings))
+        num_plus1 = number + 1
+        s = str(num_plus1)
+        ls = list(s)
+        vals = [int(i) for i in ls]
+        return vals
     
-from nose.tools import assert_equal, assert_raises
+from nose.tools import assert_equal
 
 
 class TestPlusOne(object):
@@ -34,11 +39,11 @@ class TestPlusOne(object):
         
         assert_equal(solution.plusOne([1,2,3,4,5,6]), [1,2,3,4,5,7])
         assert_equal(solution.plusOne([0]), [1])
+        assert_equal(solution.plusOne([9]), [1,0])
+        assert_equal(solution.plusOne([1,9]), [2,0])
+        assert_equal(solution.plusOne([9,9]), [1,0,0])
         assert_equal(solution.plusOne([1,1,2]), [1,1,3])
         assert_equal(solution.plusOne([1,0,2,3,4]), [1,0,2,3,5])
-        assert_raises(TypeError, solution.plusOne, None)
-        assert_raises(TypeError, solution.plusOne, "3")
-        
         
         print('Success: test_plusOne')
 

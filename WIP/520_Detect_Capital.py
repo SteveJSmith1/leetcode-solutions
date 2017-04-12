@@ -40,8 +40,9 @@ class Solution(object):
             return True
         elif lw[0] == 1 and sum(lw) == 1:
             return True
-        else:
-            return False
+        elif lw[0] == 0 and len(lw) == 1:
+            return True
+        return False
 
         
 
@@ -57,6 +58,8 @@ class TestDetectCapitalUse(object):
         assert_equal(solution.detectCapitalUse("USA"), True)
         assert_equal(solution.detectCapitalUse("FlaG"), False)
         assert_equal(solution.detectCapitalUse("Chips"), True)
+        assert_equal(solution.detectCapitalUse("g"), True)
+        
        
         print('Success: test_detectCapitalUse')
 

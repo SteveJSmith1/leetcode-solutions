@@ -15,7 +15,12 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        return
+        # Split on whitespace
+        spl = s.split()
+        # reverse each word
+        rev = [s[::-1] for s in spl]
+        # join reversed words with whitespace
+        return ' '.join(rev)
     
 from nose.tools import assert_equal
 

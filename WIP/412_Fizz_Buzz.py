@@ -21,8 +21,21 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         """
-        return
+        # create a list of strings
+        s = [str(val + 1)for val in range(n)]
+        # enumerate to be able to replace at index value
+        for n, i  in enumerate(s):
+            # check 15 first
+            if int(i) % 15 == 0:
+                s[n] = "FizzBuzz"
+            elif int(i) % 5 == 0:
+                s[n] = "Buzz"
+            elif int(i) % 3 == 0:
+                s[n] = "Fizz"
+        
+        return s
     
+
 from nose.tools import assert_equal
 
 
@@ -31,7 +44,7 @@ class TestFizzBuzz(object):
     def test_fizzBuzz(self):
         solution = Solution()
         
-        assert_equal(solution.fizzBuzz(1), "1")
+        assert_equal(solution.fizzBuzz(1), ["1"])
         assert_equal(solution.fizzBuzz(10),
                      ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz"])
         assert_equal(solution.fizzBuzz(15), 

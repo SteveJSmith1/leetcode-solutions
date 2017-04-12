@@ -20,7 +20,7 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        return
+        return list(set(t) - set(s))[0]
     
 from nose.tools import assert_equal
 

@@ -23,8 +23,20 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        return
-    
+        for idx, val in enumerate(findNums):
+            # Start at the element after nums.index(val)
+            for i in range(nums.index(val) + 1, len(nums)):
+                if nums[i] > val:
+                    findNums[idx] = nums[i]
+                    # Break as soon as val found
+                    break
+            else:
+                findNums[idx] = -1
+                # Continue to next iteration
+                continue
+                
+        return findNums
+ 
 from nose.tools import assert_equal
 
 

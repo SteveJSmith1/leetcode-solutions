@@ -11,10 +11,13 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        from math import factorial
-        s = str(factorial(n))
-        
-        return len(s) - len(s.rstrip('0'))
+        i = 5
+        zeros = 0
+        while n >= i:
+            zeros += n // i
+            i *= 5
+        return zeros
+
 
 
 from nose.tools import assert_equal

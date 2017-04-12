@@ -23,26 +23,20 @@ class Solution(object):
         Find all the elements of [1, n] inclusive that do not appear  
         in this array. 
  
-        Could you do it without extra space and in O(n) runtime? Y 
-        ou may assume the returned list does not count as extra space. 
+        Could you do it without extra space and in O(n) runtime? 
+        You may assume the returned list does not count as extra space. 
         :type nums: List[int] 
         :rtype: List[int] 
         """ 
-        
-        l = len(nums)
-        if len(nums) == 0:
-            return []
-        
-        snums = sorted(set(nums))
-        
+        for i in range(len(nums)):
+            # create an index 
+            index = abs(nums[i]) - 1
+            # make values negative if in index
+            nums[index] = -abs(nums[index])
+        # return positive values in num
+        return [i + 1 for i in range(len(nums)) if nums[i] > 0]
 
-        for i in range(1, l + 1):
-            if i in nums:
-                snums.remove(i)
-            else:
-                snums.append(i)
 
-        return snums
     
 from nose.tools import assert_equal 
  

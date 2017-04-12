@@ -20,7 +20,17 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        return list(set(t) - set(s))[0]
+        # strip non alpha chars and sort
+        ss = sorted([c for c in s if c.isalpha()])
+        st = sorted([c for c in t if c.isalpha()])
+        # add a placeholder so lengths are same
+        ss.append('-')
+        # compare vals, return the difference
+        for i in range(len(ss)):
+            if ss[i] != st[i]:
+                return st[i]
+        return 
+                
     
 from nose.tools import assert_equal
 
@@ -30,9 +40,12 @@ class TestFindTheDifference(object):
     def test_findTheDifference(self):
         solution = Solution()
         
+        assert_equal(solution.findTheDifference("a", "aa"), "a")
         assert_equal(solution.findTheDifference("abcd", "abcde"), "e")
         assert_equal(solution.findTheDifference("qwerty", "qwerty i"), "i")
         assert_equal(solution.findTheDifference("te sti", "te sti g"), "g")
+        
+
         
         print('Success: test_findTheDifference')
 

@@ -16,8 +16,29 @@ class Solution(object):
         :type words: List[str]
         :rtype: List[str]
         """
-        return
+        rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
+        valid_words = []
+        # Apply to all the words in the list
+        for word in words:
+            # Fetch the row number for the first character
+            for i in range(3):
+                if word[0].lower() in rows[i]:
+                    row_num = i
+                    
+            # check if characters in word are from same row
+            for char in word:
+                if char.lower() in rows[row_num]:
+                    continue
+                else:
+                # Break at first exception
+                    word = None
+            # Append word if all chars in same row
+            valid_words.append(word)
+        # Remove None from list    
+        return [word for word in valid_words if word is not None]
     
+
+
 from nose.tools import assert_equal
 
 

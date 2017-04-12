@@ -15,8 +15,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        return
-    
+        counter = []
+        c = 0
+        # increase c by 1 if n = 1 and append to counter
+        for n in nums:
+            if n == 1:
+                c += n
+                counter.append(c)
+            # reset c if n = 0
+            else:
+                c = 0
+        # sort values
+        try:
+            s = sorted(counter)
+            # return highest
+            return s[-1]
+        except:
+            return 0
+
 
 from nose.tools import assert_equal
 

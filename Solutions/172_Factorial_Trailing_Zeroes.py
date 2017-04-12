@@ -8,6 +8,9 @@ Created on Wed Apr 12 11:24:42 2017
 class Solution(object):
     def trailingZeroes(self, n):
         """
+        Given an integer n, return the number of trailing zeroes in n!.
+
+        Note: Your solution should be in logarithmic time complexity.
         :type n: int
         :rtype: int
         """

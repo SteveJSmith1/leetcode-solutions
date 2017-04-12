@@ -15,7 +15,7 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        return
+        return s[::-1]
     
 from nose.tools import assert_equal
 

@@ -12,9 +12,22 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        return
-    
-    
+        if (grid is None or len(grid) == 0 or len(grid[0]) == 0):
+            return 0
+        
+        result = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    # Find a 1 and give it length of four
+                    result += 4
+                    # subtract values based on neighbours
+                    if (i > 0 and grid[i-1][j] == 1):
+                        result -= 2
+                    if (j > 0 and grid[i][j-1] == 1):
+                        result -= 2
+        return result
+
 
 from nose.tools import assert_equal
 

@@ -24,8 +24,28 @@ class Solution(object):
         :type word: str
         :rtype: bool
         """
-        return
-    
+        # Convert characters to list
+        lw = list(word)
+        # if a char is a uppercase, return 1, else 0
+        for idx, char in enumerate(lw):
+            if char.isupper():
+                lw[idx] = 1
+               
+            else:
+                lw[idx] = 0
+                 
+        # Process array
+         
+        if sum(lw) == len(lw):
+            return True
+        elif lw[0] == 1 and sum(lw) == 1:
+            return True
+        else:
+            return False
+
+        
+
+
 from nose.tools import assert_equal
 
 

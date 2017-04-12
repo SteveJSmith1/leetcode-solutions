@@ -14,12 +14,27 @@ class Solution(object):
         at which the corresponding bits are different.
 
         Given two integers x and y, calculate the Hamming distance.
+        
+        Input: x = 1, y = 4
+
+        Output: 2
+        
+        Explanation:
+        1   (0 0 0 1)
+        4   (0 1 0 0)
+               ↑   ↑
+        
         :type x: int
         :type y: int
         :rtype: int
         """
-        return
-    
+        bs = bin(x^y) # XOR and convert to binary string
+        # the hamming number is the number of 1s in the XOR string
+        count = [c for c in bs if c=='1']
+        return len(count)
+
+
+   
 from nose.tools import assert_equal
 
 

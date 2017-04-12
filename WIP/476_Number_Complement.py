@@ -15,8 +15,13 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        
-        return
+        # convert num to binary string
+        bnum = bin(num)
+        # create mask of ones to flip bits
+        mask = int(2**(len(bnum[2:])) - 1)
+        # Use XOR  and mask to flip bits
+        return num ^ mask
+
     
 from nose.tools import assert_equal
 

@@ -18,7 +18,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        return
+        for i, val in enumerate(nums):
+            if val == 0:
+                nums.remove(val)
+                nums.append(val)
+        return nums
     
 from nose.tools import assert_equal
 

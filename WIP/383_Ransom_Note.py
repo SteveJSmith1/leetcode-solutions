@@ -29,17 +29,20 @@ class Solution(object):
         :rtype: bool
         """
         # Convert the strings to sorted lists
-        sr = sorted(ransomNote)
-        sn = sorted(magazine)
+        sr = ransomNote
+        sn = magazine
         # Check if element in second list
-        for val in sr:
-            if val in sn:
-                sn.remove(val)
-            else:
+        for char in sr:
+            try:
+                sn.index(char)
+                sn = sn.replace(char, '', 1)
+            except:
+                
                 return False
         return True
  
-    
+
+   
 from nose.tools import assert_equal
 
 

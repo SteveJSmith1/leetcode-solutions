@@ -28,18 +28,28 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[str]
         """
-        ranks = []
-        for i, val in enumerate(sorted(nums)):
-            if i == 0:
-                ranks.append("Gold Medal")
-            elif i == 1:
-                ranks.append("Silver Medal")
-            elif i == 2:
-                ranks.append("Bronze Medal")
+        # Sort the nums in reversed order
+        snums = sorted(nums)[::-1]
+        # Ascertain ranks
+        ranks = [i + 1 for i, val in enumerate(snums)]
+        # Create dict with values and the rank
+        vals = dict()
+        for i, val in enumerate(ranks):
+            if val == 1:
+                vals[snums[i]] = "Gold Medal"
+            elif val == 2:
+                vals[snums[i]] = "Silver Medal"
+            elif val == 3:
+                vals[snums[i]] = "Bronze Medal"
             else:
-                ranks.append(str(i + 1))
-        return ranks
-    
+                vals[snums[i]] = str(val)
+        # Look up dict values for vals in nums
+        awards = [vals[val] for val in nums]
+                
+        return awards
+
+
+
 from nose.tools import assert_equal
 
 

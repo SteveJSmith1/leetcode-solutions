@@ -53,6 +53,8 @@ class TestFindRelativeRanks(object):
         assert_equal(solution.findRelativeRanks([10,9]), 
                      ["Gold Medal","Silver Medal"])
         assert_equal(solution.findRelativeRanks([]), [])
+        assert_equal(solution.findRelativeRanks([10,3,8,9,4]), 
+                     ["Gold Medal","5","Bronze Medal","Silver Medal","4"])
         print('Success: test_findRelativeRanks')
 
 

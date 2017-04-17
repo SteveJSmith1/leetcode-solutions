@@ -28,7 +28,17 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        return 
+        # Convert the strings to sorted lists
+        sr = sorted(ransomNote)
+        sn = sorted(magazine)
+        # Check if element in second list
+        for val in sr:
+            if val in sn:
+                sn.remove(val)
+            else:
+                return False
+        return True
+ 
     
 from nose.tools import assert_equal
 

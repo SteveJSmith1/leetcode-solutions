@@ -28,16 +28,13 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        # Convert the strings to sorted lists
-        sr = ransomNote
-        sn = magazine
+        
         # Check if element in second list
-        for char in sr:
+        for char in ransomNote:
             try:
-                sn.index(char)
-                sn = sn.replace(char, '', 1)
+                magazine.index(char)
+                magazine = magazine.replace(char, '', 1)
             except:
-                
                 return False
         return True
  

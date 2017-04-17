@@ -28,8 +28,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[str]
         """
-        
-        return
+        ranks = []
+        for i, val in enumerate(sorted(nums)):
+            if i == 0:
+                ranks.append("Gold Medal")
+            elif i == 1:
+                ranks.append("Silver Medal")
+            elif i == 2:
+                ranks.append("Bronze Medal")
+            else:
+                ranks.append(str(i + 1))
+        return ranks
     
 from nose.tools import assert_equal
 

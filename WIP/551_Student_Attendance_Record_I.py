@@ -28,10 +28,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        ls = list(s)
-        if ls.count('A') > 1 or ls.count('L') > 2:
-            return False
-        return True
+        return not (s.count('A') > 1 or 'LLL' in s)
     
     
 from nose.tools import assert_equal

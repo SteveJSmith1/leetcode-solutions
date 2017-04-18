@@ -22,7 +22,25 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
-        return
+        if num == 0:
+            return '0'
+        # Using divmod in a recursive loop to fetch the modulus
+        dm = divmod(num, 7)
+        # Collecting the modulus in a list as strings
+        smod = []
+        # Modulus is the last value
+        smod.append(str(dm[-1]))
+        # If the first value is less than seven, it has completed
+        while dm[0] >= 7:
+            dm = divmod(dm[0], 7)
+            # Put strings at front of list
+            smod.insert(0, str(dm[-1]))
+        # Catch the last value
+        smod.insert(0, str(dm[0]))
+        # return joined string
+        return ''.join(smod)
+    
+
     
 from nose.tools import assert_equal
 

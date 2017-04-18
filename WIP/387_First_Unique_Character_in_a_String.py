@@ -23,6 +23,8 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        if s == "":
+            return -1
         # create list of characters
         ls = list(s)
         # test first character
@@ -50,6 +52,7 @@ class TestFirstUniqChar(object):
         assert_equal(solution.firstUniqChar("leetcode"), 0)
         assert_equal(solution.firstUniqChar("loveleetcode"), 2)
         assert_equal(solution.firstUniqChar("aallrreeppaattss"), -1)
+        assert_equal(solution.firstUniqChar(""), -1)
         print('Success: test_firstUniqChar')
 
 

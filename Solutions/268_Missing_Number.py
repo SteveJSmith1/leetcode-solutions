@@ -22,13 +22,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # Add extra element to catch lists that contain proper sequence
-        nums.append(0)
-        # enumerate and check index == value
-        for i, val in enumerate(nums):
-            if i != val:
-                return i
-    
+        return sum(range(len(nums)+1)) - sum(nums)
+
+
+  
 
 from nose.tools import assert_equal
 
@@ -41,6 +38,7 @@ class TestMissingNumber(object):
         assert_equal(solution.missingNumber([0, 1, 3]), 2)
         assert_equal(solution.missingNumber([0]), 1)
         assert_equal(solution.missingNumber([0,1,2,3]), 4)
+        assert_equal(solution.missingNumber([1, 0]), 2)
         print('Success: test_missingNumber')
 
 

@@ -18,7 +18,7 @@ class Solution(object):
             return False
         
         from math import log
-        val = round(log(n)/log(3),1)
+        val = round(log(n)/log(3),12)
         print(val)
         return val % 1 == 0
     
@@ -38,6 +38,10 @@ class TestIsPowerOfThree(object):
         assert_equal(solution.isPowerOfThree(45), False)
         assert_equal(solution.isPowerOfThree(-3), False)
         assert_equal(solution.isPowerOfThree(243), True)
+        assert_equal(solution.isPowerOfThree(19682), False)
+        assert_equal(solution.isPowerOfThree(387420488), False)
+        
+        
         
         print('Success: test_isPowerOfThree')
 

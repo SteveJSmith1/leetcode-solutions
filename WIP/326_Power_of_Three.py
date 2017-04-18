@@ -14,12 +14,12 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        if n == 0:
+        if n <= 0:
             return False
-        elif n < 0:
-            n = abs(n)
+        
         from math import log
-        val = log(n)/log(3)
+        val = round(log(n)/log(3),1)
+        print(val)
         return val % 1 == 0
     
 
@@ -36,7 +36,8 @@ class TestIsPowerOfThree(object):
         assert_equal(solution.isPowerOfThree(0), False)
         assert_equal(solution.isPowerOfThree(11), False)
         assert_equal(solution.isPowerOfThree(45), False)
-        assert_equal(solution.isPowerOfThree(-3), True)
+        assert_equal(solution.isPowerOfThree(-3), False)
+        assert_equal(solution.isPowerOfThree(243), True)
         
         print('Success: test_isPowerOfThree')
 

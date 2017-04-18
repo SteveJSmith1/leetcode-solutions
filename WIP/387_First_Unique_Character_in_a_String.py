@@ -23,11 +23,21 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        for i, char in enumerate(list(s)):
-            if s.count(char) == 1:
-                return i
-        
-        return -1
+        # create list of characters
+        ls = list(s)
+        # test first character
+        char = ls[0]
+        # try loop to return -1 on not found
+        try:
+            # remove all occurences of char if it repeats
+            while s.count(char) != 1:
+                ls = [x for x in ls if x != char]
+                # use first char
+                char = ls[0]
+        except:
+            return -1
+        # if while loop succeeds, return index
+        return s.index(char)
     
 from nose.tools import assert_equal
 

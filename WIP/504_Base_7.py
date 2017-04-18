@@ -22,8 +22,7 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
-        if num == 0:
-            return '0'
+        
         # Using divmod in a recursive loop to fetch the modulus
         dm = divmod(num, 7)
         # Collecting the modulus in a list as strings
@@ -38,6 +37,8 @@ class Solution(object):
         # Catch the last value
         smod.insert(0, str(dm[0]))
         # return joined string
+        if smod[0] == '0':
+            smod.remove('0')
         return ''.join(smod)
     
 
@@ -53,6 +54,7 @@ class TestConvertToBase7(object):
         assert_equal(solution.convertToBase7(100), "202")
         assert_equal(solution.convertToBase7(-7), "-10")
         assert_equal(solution.convertToBase7(0), "0")
+        assert_equal(solution.convertToBase7(6), "6")
         
         print('Success: test_convertToBase7')
 

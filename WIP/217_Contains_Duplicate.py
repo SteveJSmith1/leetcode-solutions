@@ -16,10 +16,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        for num in nums:
-            if nums.count(num) > 1:
-                return True
-        return False
+        return len(nums) != len(set(nums))
     
 from nose.tools import assert_equal
 

@@ -17,9 +17,10 @@ class Solution(object):
         :type k: int
         :rtype: str
         """
-        ls = s.split()
-        new_s = [st[0:k][::-1] + st[k:] for st in ls]
-        return ' '.join(new_s)
+        s = list(s)
+        for i in range(0, len(s), 2*k):
+           s[i:i+k] = reversed(s[i:i+k])
+        return "".join(s)
 
 
 from nose.tools import assert_equal

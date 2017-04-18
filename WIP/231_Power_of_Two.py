@@ -16,7 +16,11 @@ class Solution(object):
         if a number is a power of two then in it's binary
         form, there is only one 1
         """
-        return
+        if n <= 0:
+            return False
+        
+        binstring = str(bin(n)[2:])
+        return binstring.count('1') == True
 
 
 from nose.tools import assert_equal

@@ -26,7 +26,19 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        return
+        # Enumerate then brute force checking each element pair
+        vals = list(enumerate(numbers))
+
+        for idx, n in vals:
+            for idx2, n2 in vals:
+                if n + n2 == target:
+                    # Check if indexes are equal
+                    if idx != idx2:
+                        return([idx + 1, idx2 + 1])
+                    else:
+                        continue
+        return None
+
 
     
 from nose.tools import assert_equal

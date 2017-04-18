@@ -22,7 +22,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        return
+        # Add extra element to catch lists that contain proper sequence
+        nums.append(0)
+        # enumerate and check index == value
+        for i, val in enumerate(nums):
+            if i != val:
+                return i
     
 
 from nose.tools import assert_equal

@@ -14,12 +14,12 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        if n == 1:
-            return True
-        elif n == 0:
+        if n == 0:
             return False
         
-        return divmod(n, 3)[-1] == 0
+        from math import log
+        val = log(n)/log(3)
+        return val % 1 == 0
     
 
 from nose.tools import assert_equal
@@ -34,6 +34,8 @@ class TestIsPowerOfThree(object):
         assert_equal(solution.isPowerOfThree(1), True)
         assert_equal(solution.isPowerOfThree(0), False)
         assert_equal(solution.isPowerOfThree(11), False)
+        assert_equal(solution.isPowerOfThree(45), False)
+        
         print('Success: test_isPowerOfThree')
 
 

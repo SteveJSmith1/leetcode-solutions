@@ -20,7 +20,7 @@ class Solution(object):
             return False
         
         binstring = str(bin(n)[2:])
-        return binstring.count('1') == True
+        return binstring.count('1') == 1
 
 
 from nose.tools import assert_equal

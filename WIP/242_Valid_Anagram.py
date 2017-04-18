@@ -22,7 +22,10 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        return
+        ls = sorted(list(s))
+        lt = sorted(list(t))
+        return ls == lt
+
     
 from nose.tools import assert_equal
 

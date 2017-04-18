@@ -25,6 +25,11 @@ class Solution(object):
         if num < 7 and num > -7:
             return str(num)
         
+        if num < 0:
+            m = '-'
+            num = int(str(num)[1:])
+        else:
+            m = ''
         # Using divmod in a recursive loop to fetch the modulus
         dm = divmod(num, 7)
         # Collecting the modulus in a list as strings
@@ -39,7 +44,7 @@ class Solution(object):
         # Catch the last value
         smod.insert(0, str(dm[0]))
         # return joined string
-        
+        smod.insert(0, m)
         return ''.join(smod)
     
 
@@ -57,6 +62,7 @@ class TestConvertToBase7(object):
         assert_equal(solution.convertToBase7(0), "0")
         assert_equal(solution.convertToBase7(6), "6")
         assert_equal(solution.convertToBase7(-1), "-1")
+        assert_equal(solution.convertToBase7(-8), "-11")
         
         print('Success: test_convertToBase7')
 

@@ -23,7 +23,11 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        return
+        for i, char in enumerate(list(s)):
+            if s.count(char) == 1:
+                return i
+        
+        return -1
     
 from nose.tools import assert_equal
 

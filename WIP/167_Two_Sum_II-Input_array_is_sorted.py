@@ -26,19 +26,17 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # Enumerate then brute force checking each element pair
-        vals = list(enumerate(numbers))
-
-        for idx, n in vals:
-            for idx2, n2 in vals:
-                if n + n2 == target:
-                    # Check if indexes are equal
-                    if idx != idx2:
-                        return([idx + 1, idx2 + 1])
-                    else:
-                        continue
-        return None
-
+        # Create a dictionaty
+        dic = {}
+        # enumerate vals and indices
+        for i, val in enumerate(numbers):
+            # check if second addend is in the dict
+            if target - val in dic:
+                # return indices if so
+                return [dic[target-val]+1, i+1]
+            # else put the value in the dictionary with it's index
+            dic[val] = i
+ 
 
     
 from nose.tools import assert_equal
